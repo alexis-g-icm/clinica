@@ -190,6 +190,7 @@ def execute():
     """
     from clinica.engine import CmdParser
 
+    from clinica.pipelines.deformetrica_prepare_data.deformetrica_prepare_data_cli import DeformetricaPrepareDataCLI
     from clinica.pipelines.t1_freesurfer.t1_freesurfer_cli import T1FreeSurferCLI
     # from clinica.pipelines.t1_freesurfer_longitudinal.t1_freesurfer_longitudinal_cli import T1FreeSurferLongitudinalCLI
     from clinica.pipelines.t1_volume_tissue_segmentation.t1_volume_tissue_segmentation_cli import T1VolumeTissueSegmentationCLI
@@ -211,6 +212,7 @@ def execute():
     pipelines = ClinicaClassLoader(baseclass=CmdParser,
                                    extra_dir="pipelines").load()
     pipelines += [
+        DeformetricaPrepareDataCLI(),
         T1FreeSurferCLI(),
         T1VolumeNewTemplateCLI(),
         # T1FreeSurferLongitudinalCLI(),
